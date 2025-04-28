@@ -22,7 +22,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   };
 
   return (
-    <div className="relative w-[503px]">
+    <div className="relative mx-auto">
       <input
         type="text"
         placeholder="Digite um usuário do GitHub"

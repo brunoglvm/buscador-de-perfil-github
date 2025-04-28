@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import GitHubIcon from "@/assets/logos/icon.svg?react";
 import GitHubText from "@/assets/logos/text.svg?react";
+// import DotPattern from "@/assets/bg/dot-pattern.svg?react";
 
 import { Card } from "./components/card";
 import { SearchBar } from "./components/search-bar";
@@ -23,6 +24,7 @@ export default function App() {
       const data = await getProfile(username);
       setUser({
         avatar_url: data.avatar_url,
+        login: data.login,
         name: data.name,
         bio: data.bio,
       });
@@ -37,28 +39,30 @@ export default function App() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-600 ">
-      <div className="flex items-center flex-col w-[72.25rem] h-[33.5625rem] bg-black py-9">
-        <div className="flex flex-row items-center gap-[.6875rem]">
-          <GitHubIcon
-            width={58}
-            height={58}
-            className="fill-white"
-            aria-label="Isotipo do GitHub"
-          />
-          <h1 className="text-6xl font-semibold text-white">Perfil</h1>
-          <GitHubText
-            width={158}
-            height={44}
-            className="fill-white"
-            aria-label="Logotipo do GitHub"
-          />
+    <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center flex-col w-[100%] h-[100%] bg-gray-600 md:w-[72.25rem] md:h-[33.5625rem] md:rounded-xl md:bg-black py-9">
+        <div className="flex flex-row items-center gap-1 md:gap-2">
+          <div className="w-7 h-7 md:w-[3.625rem] md:h-[3.625rem]">
+            <GitHubIcon
+              className="w-full h-full fill-white"
+              aria-label="Isotipo do GitHub"
+            />
+          </div>
+          <h1 className="text-2xl font-semibold text-white md:text-5xl">
+            Perfil
+          </h1>
+          <div className="w-15 h-5 md:w-[8rem] md:h-[2.25rem]">
+            <GitHubText
+              className="w-full h-full fill-white"
+              aria-label="Logotipo do GitHub"
+            />
+          </div>
         </div>
-        <div className="mt-7">
+        <div className="w-[70%] mt-7 md:w-[31.4375rem]">
           <SearchBar onSearch={handleSearch} />
         </div>
-        <div className="mt-9">
-          {loading && <p className="text-white">Carregando...</p>}
+        <div className="w-[90%] mt-9">
+          {loading && <p className="text-white text-center">Carregando...</p>}
           {error && (
             <p className="text-center text-red">
               Nenhum perfil foi encontrado com esse nome de usuário.{" "}
