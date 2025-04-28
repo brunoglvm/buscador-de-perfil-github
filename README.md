@@ -37,13 +37,13 @@ Siga os passos abaixo para rodar o projeto:
 
 ### 1. Clone o Repositório
 
-```bash
+```
 git clone <URL-do-repositório>
 ```
 
 ### 2. Acesse o Diretório
 
-```bash
+```
 cd <nome-do-diretório>
 ```
 
