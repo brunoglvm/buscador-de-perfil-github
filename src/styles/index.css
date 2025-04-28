@@ -16,3 +16,9 @@ body {
     sans-serif;
   background-color: var(--color-gray-600);
 }
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-blue);
+  transition: box-shadow 0.2s;
+}
