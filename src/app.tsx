@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { BeatLoader } from "react-spinners";
+
+import { Card } from "./components/card";
+import { SearchBar } from "./components/search-bar";
 
 import GitHubIcon from "@/assets/logos/icon.svg?react";
 import GitHubText from "@/assets/logos/text.svg?react";
 // import DotPattern from "@/assets/bg/dot-pattern.svg?react";
-
-import { Card } from "./components/card";
-import { SearchBar } from "./components/search-bar";
 
 import { UserProfile } from "@/types/user-profile";
 import { getProfile } from "@/services/api/github-api";
@@ -62,14 +63,22 @@ export default function App() {
           <SearchBar onSearch={handleSearch} />
         </div>
         <div className="w-[90%] mt-9">
-          {loading && <p className="text-white text-center">Carregando...</p>}
-          {error && (
+          {error ? (
             <p className="text-center text-red">
               Nenhum perfil foi encontrado com esse nome de usuário.{" "}
               <span className="block">Tente novamente</span>
             </p>
+          ) : (
+            <div className="card-container">
+              {loading ? (
+                <div className="flex justify-center items-center h-[13.75rem]">
+                  <BeatLoader size={18} color="#005cff" />
+                </div>
+              ) : (
+                user && <Card user={user} />
+              )}
+            </div>
           )}
-          {!error && user && <Card user={user} />}
         </div>
       </div>
     </div>
