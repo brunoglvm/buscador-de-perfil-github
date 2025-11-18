@@ -24,11 +24,14 @@ export default function App() {
     try {
       const data = await getProfile(username);
       setUser({
-        avatar_url: data.avatar_url,
+        avatar: data.avatar_url,
         login: data.login,
         name: data.name,
         bio: data.bio,
+        url: data.html_url,
       });
+
+      console.log(data);
     } catch (err) {
       setError(
         "Nenhum perfil foi encontrado com esse nome de usuário. Tente novamente",
@@ -40,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <main className="flex h-screen items-center justify-center">
       <div className="flex h-[100%] w-[100%] flex-col items-center bg-gray-600 py-9 md:h-[33.5625rem] md:w-[72.25rem] md:rounded-xl md:bg-black">
         <div className="flex flex-row items-center gap-1 md:gap-2">
           <div className="size-7 md:h-[3.625rem] md:w-[3.625rem]">
@@ -81,6 +84,6 @@ export default function App() {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
