@@ -6,7 +6,7 @@ import { SearchBar } from "./components/search-bar";
 
 import GitHubIcon from "@/assets/logos/icon.svg?react";
 import GitHubText from "@/assets/logos/text.svg?react";
-// import DotPattern from "@/assets/bg/dot-pattern.svg?react";
+// import DotPattern from "@/assets/dot-pattern.svg?react";
 
 import { UserProfile } from "@/types/user-profile";
 import { getProfile } from "@/services/api/github-api";
@@ -31,7 +31,7 @@ export default function App() {
       });
     } catch (err) {
       setError(
-        "Nenhum perfil foi encontrado com esse nome de usuário. Tente novamente"
+        "Nenhum perfil foi encontrado com esse nome de usuário. Tente novamente",
       );
       console.error(err);
     } finally {
@@ -40,38 +40,38 @@ export default function App() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="flex items-center flex-col w-[100%] h-[100%] bg-gray-600 md:w-[72.25rem] md:h-[33.5625rem] md:rounded-xl md:bg-black py-9">
+    <div className="flex h-screen items-center justify-center">
+      <div className="flex h-[100%] w-[100%] flex-col items-center bg-gray-600 py-9 md:h-[33.5625rem] md:w-[72.25rem] md:rounded-xl md:bg-black">
         <div className="flex flex-row items-center gap-1 md:gap-2">
-          <div className="w-7 h-7 md:w-[3.625rem] md:h-[3.625rem]">
+          <div className="size-7 md:h-[3.625rem] md:w-[3.625rem]">
             <GitHubIcon
-              className="w-full h-full fill-white"
+              className="h-full w-full fill-white"
               aria-label="Isotipo do GitHub"
             />
           </div>
           <h1 className="text-2xl font-semibold text-white md:text-5xl">
             Perfil
           </h1>
-          <div className="w-15 h-5 md:w-[8rem] md:h-[2.25rem]">
+          <div className="h-5 w-15 md:h-[2.25rem] md:w-[8rem]">
             <GitHubText
-              className="w-full h-full fill-white"
+              className="h-full w-full fill-white"
               aria-label="Logotipo do GitHub"
             />
           </div>
         </div>
-        <div className="w-[70%] mt-7 md:w-[31.4375rem]">
+        <div className="mt-7 w-[70%] md:w-[31.4375rem]">
           <SearchBar onSearch={handleSearch} />
         </div>
-        <div className="w-[90%] mt-9">
+        <div className="mt-9 w-[90%]">
           {error ? (
-            <p className="text-center text-red">
+            <p className="text-red text-center">
               Nenhum perfil foi encontrado com esse nome de usuário.{" "}
               <span className="block">Tente novamente</span>
             </p>
           ) : (
             <div className="card-container">
               {loading ? (
-                <div className="flex justify-center items-center h-[13.75rem]">
+                <div className="flex h-[13.75rem] items-center justify-center">
                   <BeatLoader size={18} color="#005cff" />
                 </div>
               ) : (
