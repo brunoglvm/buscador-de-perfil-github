@@ -6,7 +6,7 @@ type CardProps = {
 
 export function Card({ user }: CardProps) {
   return (
-    <div className="mx-auto flex flex-col items-center gap-8 rounded-3xl bg-gray-400 px-4 py-4 md:w-201 md:flex-row md:px-[2.0625rem] md:py-[1.125rem]">
+    <div className="mx-auto flex w-full max-w-201 flex-col items-center gap-8 rounded-3xl bg-gray-400 p-4 md:flex-row md:px-[2.0625rem] md:py-[1.125rem]">
       <a
         href={user.url}
         target="_blank"

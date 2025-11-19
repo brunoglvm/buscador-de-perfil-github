@@ -2,15 +2,16 @@ import { useState } from "react";
 import Search from "@/assets/icons/search.svg?react";
 
 type SearchBarProps = {
+  className?: string;
   onSearch: (username: string) => void;
 };
 
-export function SearchBar({ onSearch }: SearchBarProps) {
+export function SearchBar({ onSearch, className }: SearchBarProps) {
   const [username, setUsername] = useState("");
   const cleanUsername = username.trim();
 
   return (
-    <div className="relative mx-auto">
+    <div className={`relative ${className}`}>
       <input
         type="text"
         placeholder="Digite um usuário"
@@ -20,7 +21,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
           if (!cleanUsername || e.key !== "Enter") return;
           onSearch(cleanUsername);
         }}
-        className="focus:ring-blue w-full rounded-[.625rem] border border-gray-200 bg-white py-[1.125rem] pr-17 pl-3 text-base font-semibold text-black placeholder-black focus:ring-2 focus:outline-none md:pr-[4.875rem] md:pl-4 md:text-xl"
+        className="focus:ring-blue w-full rounded-[.625rem] border border-gray-200 bg-white py-[1.125rem] pr-17 pl-3 text-base font-semibold text-black placeholder-black focus:ring-2 focus:outline-none md:text-xl"
       />
       <button
         onClick={() => {
