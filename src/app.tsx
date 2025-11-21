@@ -6,7 +6,7 @@ import { SearchBar } from "./components/search-bar";
 
 import GitHubIcon from "@/assets/logos/icon.svg?react";
 import GitHubText from "@/assets/logos/text.svg?react";
-import DotPattern from "@/assets/dot-pattern.svg?react";
+import DotPattern from "@/assets/bg/dot-pattern.svg?react";
 
 import { UserProfile } from "@/types/user-profile";
 import { getProfile } from "@/services/api/github-api";
